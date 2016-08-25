@@ -2,7 +2,9 @@
 
 var juke = angular.module('juke', ['ui.router'])
 
-juke.config(function ($stateProvider) {
+juke.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider.when('', '/albums');
+  $locationProvider.html5Mode(true);
   $stateProvider
   .state('albumList', {
     url: '/albums',
@@ -53,3 +55,5 @@ juke.config(function ($stateProvider) {
     templateUrl: '/templates/artist_songs.html'
   });
 });
+
+
